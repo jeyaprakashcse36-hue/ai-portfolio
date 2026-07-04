@@ -9,7 +9,7 @@ export default function Footer() {
       position: 'relative',
       zIndex: 1,
     }}>
-      <p>© 2025 Jeya Prakash B &nbsp;·&nbsp; Built with React + Vite + Tailwind CSS &nbsp;·&nbsp; Deployed on Vercel</p>
+      <p>© 2025 Jeya Prakash B &nbsp;·&nbsp; Built with React + Vite + Tailwind CSS &nbsp;·&nbsp; Deployed on Github</p>
     </footer>
   )
 }

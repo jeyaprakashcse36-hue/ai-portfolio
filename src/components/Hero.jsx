@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
 
           <h1 className="gradient-text" style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(2.5rem,5vw,4.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '0.5rem' }}>
-            Jeya Prakash B
+            Arun Santhosh
           </h1>
           <p style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(1rem,2vw,1.4rem)', fontWeight: 500, color: 'var(--teal)', marginBottom: '1.5rem' }}>
             AI/ML Systems Engineer · TCS
