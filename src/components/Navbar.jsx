@@ -9,6 +9,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -18,23 +19,51 @@ export default function Navbar() {
 
   const handleClick = (e, href) => {
     e.preventDefault()
+    setMenuOpen(false)
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <nav style={{
+    <nav className="navbar-shell" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: scrolled ? '0.75rem 3rem' : '1rem 3rem',
+      padding: scrolled ? '0.75rem 1.25rem' : '1rem 1.25rem',
       background: 'rgba(5,5,16,0.85)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
       transition: 'padding 0.3s',
+      position: 'fixed',
+      width: '100%',
+      boxSizing: 'border-box',
     }}>
-      <span className="logo-gradient" style={{ fontFamily: 'Space Grotesk', fontSize: '1.25rem', fontWeight: 700 }}>
+      <span className="logo-gradient" style={{ fontFamily: 'Space Grotesk', fontSize: '1.25rem', fontWeight: 700, zIndex: 2 }}>
         JP - Portfolio
       </span>
-      <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
+
+      <button
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+        className="mobile-nav-toggle"
+        style={{
+          display: 'none',
+          border: '1px solid var(--border2)',
+          background: 'rgba(255,255,255,0.06)',
+          color: 'var(--text)',
+          width: '2.5rem',
+          height: '2.5rem',
+          borderRadius: '999px',
+          cursor: 'pointer',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '1rem',
+        }}
+      >
+        ☰
+      </button>
+
+      <ul className={`navbar-links ${menuOpen ? 'open' : ''}`} style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}>
         {links.map((l) => (
           <li key={l.href}>
             <a

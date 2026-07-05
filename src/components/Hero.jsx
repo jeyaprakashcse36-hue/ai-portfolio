@@ -8,6 +8,10 @@ const stats = [
   { num: '8.39', label: 'CGPA' },
 ]
 
+const resumeUrl = typeof window !== 'undefined'
+  ? `${window.location.origin}${import.meta.env.BASE_URL}resume.pdf`
+  : `${import.meta.env.BASE_URL}resume.pdf`
+
 export default function Hero() {
   useEffect(() => {
     setTimeout(() => {
@@ -21,8 +25,8 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center',
-        paddingTop: '6rem', maxWidth: '100%', padding: '6rem 0 0',
+        minHeight: '100dvh', display: 'flex', alignItems: 'center',
+        paddingTop: '6rem', maxWidth: '100%', padding: '6rem 1.5rem 3rem',
       }}
     >
       <div style={{
@@ -31,7 +35,7 @@ export default function Hero() {
         gap: '4rem', alignItems: 'center', width: '100%',
       }}>
         {/* TEXT */}
-        <div className="fade-in">
+        <div className="fade-in hero-text">
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
             padding: '0.35rem 1rem', borderRadius: '999px',
@@ -44,10 +48,10 @@ export default function Hero() {
             Available for opportunities
           </div>
 
-          <h1 className="gradient-text" style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(2.5rem,5vw,4.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '0.5rem' }}>
+          <h1 className="gradient-text hero-title" style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(2.5rem,5vw,4.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '0.5rem' }}>
             Jeya Prakash B
           </h1>
-          <p style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(1rem,2vw,1.4rem)', fontWeight: 500, color: 'var(--teal)', marginBottom: '1.5rem' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(1rem,2vw,1.4rem)', fontWeight: 500, color: 'var(--teal)', marginBottom: '1.5rem' }}>
             AI/ML Systems Engineer · TCS
           </p>
           <p style={{ color: 'var(--text2)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: 480 }}>
@@ -55,7 +59,7 @@ export default function Hero() {
             IEEE-published researcher with 1.9 years at TCS driving LLM-powered migration at scale.
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="hero-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
               href="#contact"
               onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
@@ -64,14 +68,16 @@ export default function Hero() {
               onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
             >Get in Touch</a>
             <a
-              href="mailto:jeyaprakashcse36@gmail.com"
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.75rem', borderRadius: '999px', background: 'transparent', border: '1px solid var(--border2)', color: 'var(--text)', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.25s' }}
               onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-            >Download Resume</a>
+            >View Resume</a>
           </div>
 
-          <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
+          <div className="hero-stats" style={{ display: 'flex', gap: '2rem', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
             {stats.map(s => (
               <div key={s.label}>
                 <div style={{ fontFamily: 'Space Grotesk', fontSize: '2rem', fontWeight: 700, lineHeight: 1 }}>{s.num}</div>
@@ -82,7 +88,7 @@ export default function Hero() {
         </div>
 
         {/* PHOTO */}
-        <div className="fade-in" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '0.2s' }}>
+        <div className="fade-in hero-photo" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '0.2s' }}>
           {/* Orbit ring */}
           <div className="animate-orbit" style={{
             position: 'absolute', inset: -40, borderRadius: '50%',
@@ -92,7 +98,7 @@ export default function Hero() {
           </div>
 
           {/* Frame */}
-          <div style={{
+          <div className="hero-photo-frame" style={{
             width: 320, height: 380, borderRadius: 20, overflow: 'hidden',
             border: '2px solid rgba(108,99,255,0.3)', position: 'relative',
             background: 'var(--bg3)', boxShadow: '0 0 60px rgba(108,99,255,0.15)',
