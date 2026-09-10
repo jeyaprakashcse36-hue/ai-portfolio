@@ -19,7 +19,7 @@ const jobs = [
     dotColor: 'var(--accent)',
     dotShadow: '0 0 12px var(--accent)',
     points: [
-      'Contributed to Mastercraft — TCS's internal LLM-based tool converting mainframe languages (COBOL, Natural, PHP) into Java code.',
+      "Contributed to Mastercraft — TCS's internal LLM-based tool converting mainframe languages (COBOL, Natural, PHP) into Java code.",
       'Designed and tested language model prompts to improve migration accuracy and efficiency.',
       'Applied supervised and unsupervised ML algorithms in hands-on mini-projects to achieve classification objectives.',
     ],

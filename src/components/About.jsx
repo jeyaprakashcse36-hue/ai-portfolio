@@ -9,10 +9,12 @@ const skills = [
   { label: 'Mainframe / COBOL', type: 'tools' },
   { label: 'Z/OS', type: 'tools' },
   { label: 'Batch Scheduling', type: 'tools' },
-  { label: 'Cloud Computing', type: 'cloud' },
-  { label: 'SAP Integration', type: 'lang' },
   { label: 'Gen AI Tools', type: 'ai' },
   { label: 'MS Excel', type: 'cloud' },
+  { label: 'Power Automate', type: 'cloud' },
+  { label: 'Django', type: 'lang' },
+  { label: 'Google ADK', type: 'cloud' },
+
 ]
 
 const sectionStyle = { padding: '6rem 3rem', maxWidth: 1100, margin: '0 auto' }
@@ -21,7 +23,7 @@ export default function About() {
   return (
     <section id="about" style={sectionStyle}>
       <div className="fade-in">
-        <p style={{ fontSize:'0.75rem', fontWeight:600, letter  Spacing:'0.15em', textTransform:'uppercase', color:'var(--accent2)', marginBottom:'0.75rem' }}>Who I Am</p>
+        <p style={{ fontSize:'0.75rem', fontWeight:600, letterSpacing:'0.15em', textTransform:'uppercase', color:'var(--accent2)', marginBottom:'0.75rem' }}>Who I Am</p>
         <h2 style={{ fontFamily:'Space Grotesk', fontSize:'clamp(1.75rem,3vw,2.5rem)', fontWeight:700, color:'var(--text)', lineHeight:1.2, marginBottom:'1rem' }}>Engineer. Researcher. Builder.</h2>
         <p style={{ color:'var(--text2)', fontSize:'1.05rem', maxWidth:540, lineHeight:1.8, marginBottom:'3rem' }}>
           A Systems Engineer at TCS Chennai who bridges the gap between legacy mainframe systems and modern AI—through prompts, Python, and automations.
